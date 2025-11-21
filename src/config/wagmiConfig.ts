@@ -1,0 +1,29 @@
+import { http } from "wagmi";
+import { anvil, mainnet, polygon } from "wagmi/chains";
+import { getDefaultConfig } from "@rainbow-me/rainbowkit";
+
+// Detect environment
+const isProd = import.meta.env.VITE_ENV === "prod";
+
+// Base transports object
+const transports: Record<number, ReturnType<typeof http>> = {};
+
+// Assign depending on env
+if (isProd) {
+  const infuraId = import.meta.env.VITE_INFURA_ID;
+  if (infuraId) {
+    transports[polygon.id] = http(`https://polygon-mainnet.infura.io/v3${infuraId}`);
+  } else {
+    transports[polygon.id] = http(polygon.rpcUrls.default.http[0]);
+  }
+} else {
+  transports[anvil.id] = http("http://127.0.0.1:8545");
+}
+
+// Final wagmi config
+export const wagmiConfig = getDefaultConfig({
+  appName: "Spiral Stake",
+  projectId: import.meta.env.VITE_WALLETCONNECT_PROJECT_ID,
+  chains: isProd ? [polygon] : [anvil],
+  transports,
+});

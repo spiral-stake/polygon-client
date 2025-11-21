@@ -1,0 +1,14 @@
+{
+  "0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD": {
+    "underlyingCollateral": "ETH",
+    "yieldSource": "ETH Staking",
+    "riskProfile": "low",
+    "apy": "2.73"
+  },
+  "0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6": {
+    "underlyingCollateral": "Matic",
+    "yieldSource": "Matic Staking",
+    "riskProfile": "medium",
+    "apy": "2.41"
+  }
+}
