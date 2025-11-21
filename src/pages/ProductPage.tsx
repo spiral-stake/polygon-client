@@ -318,7 +318,7 @@ const ProductPage = ({ flashLeverage }: { flashLeverage: FlashLeverage }) => {
       // Early return if external swap data is needed but missing
       if (!isSameToken && !externalSwapData) return;
 
-      flashLeverage.leverage(
+      await flashLeverage.leverage(
         address,
         desiredLtv,
         fromToken as CollateralToken,

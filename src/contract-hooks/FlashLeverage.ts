@@ -201,7 +201,7 @@ export default class FlashLeverage extends Base {
             .minus(amountLoan),
 
           // will be added from the server
-          leverageApy: "",
+          leverageApy: calcLeverageApy(collateralToken.info.apy, collateralToken.borrowApy, ltv),
           amountReturnedInUsd: BigNumber(0),
           yieldGenerated: amountLeveragedCollateralInLoanToken
             .minus(amountLoan)

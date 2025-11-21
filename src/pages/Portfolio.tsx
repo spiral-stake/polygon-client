@@ -38,19 +38,19 @@ const Portfolio = ({ flashLeverage }: { flashLeverage: FlashLeverage }) => {
           : "http://localhost:5000";
 
       if (flashLeverage) {
-        let [_leveragePositions, allLeveragePositions] = await Promise.all([
+        let [_leveragePositions] = await Promise.all([
           flashLeverage.getUserLeveragePositions(address),
-          axios
-            .get<any[]>(`${baseUrl}/leveragePositions`)
-            .then((res) => res.data),
+          // axios
+          //   .get<any[]>(`${baseUrl}/leveragePositions`)
+          //   .then((res) => res.data),
         ]);
 
-        // Server Related
-        _leveragePositions = updatePositionsData(
-          allLeveragePositions,
-          address,
-          _leveragePositions
-        );
+        // // Server Related
+        // _leveragePositions = updatePositionsData(
+        //   allLeveragePositions,
+        //   address,
+        //   _leveragePositions
+        // );
 
         setLeveragePositions(_leveragePositions);
       }
