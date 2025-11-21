@@ -362,7 +362,7 @@ const ProductPage = ({ flashLeverage }: { flashLeverage: FlashLeverage }) => {
       .integerValue(BigNumber.ROUND_FLOOR) // BigNumber floor
       .div(100); // back to original scale
 
-    setAmountCollateral(BigNumber.min(truncated, maxLeverageAmount).toFixed(2));
+    setAmountCollateral(BigNumber.min(truncated, maxLeverageAmount).toFixed(3));
   };
 
   return (
