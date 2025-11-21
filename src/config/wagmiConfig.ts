@@ -12,7 +12,7 @@ const transports: Record<number, ReturnType<typeof http>> = {};
 if (isProd) {
   const infuraId = import.meta.env.VITE_INFURA_ID;
   if (infuraId) {
-    transports[polygon.id] = http(`https://polygon-mainnet.infura.io/v3${infuraId}`);
+    transports[polygon.id] = http(`https://polygon-mainnet.infura.io/v3/${infuraId}`);
   } else {
     transports[polygon.id] = http(polygon.rpcUrls.default.http[0]);
   }
